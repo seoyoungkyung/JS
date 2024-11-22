@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>api 연습</title>
+  </head>
+  <body>
+    <h1>도서 API</h1>
+ <script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+
+
+    <script>
+      $.ajax({
+        method: "GET",
+        url: "https://dapi.kakao.com/v3/search/book?target=title",
+        data: { query:"미움받을 용기" },
+        headers:{Authorization: "KakaoAK c8ffc3ab6fd3e90abbd76c604e685526"}
+      })
+        .done(function( msg ) {
+            alert( "Data Saved: " + msg );
+      });
+
+    </script>
+  </body>
+</html>
+
+

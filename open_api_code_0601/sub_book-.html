@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>api 연습</title>
+  
+    <style>
+      * {box-sizing:border-box; background-color:white; margin:0;}
+       .sub_box {width:300px; height:450px; float:left; text-align:center; margin:20px; padding:15px  30px; border-radius:4px; border:1px solid #ddd; box-shadow:4px 4px 4px #eee;}   
+       .sub_box p {font-size:11px; color:#666; text-align:left;} 
+
+
+
+
+
+      header {width:1400px; height:150px; margin:0 auto;  border:1px solid #eee; border-radius:30px;  padding:10px; }   
+      
+      section {width:1400px; height:1100px;  margin:30px auto 0 auto; border:1px solid #eee; border-radius:30px;  padding:10px; position:relative;}   
+
+      section h3 {padding:30px 0 0 20px;}
+
+      footer {width:1400px; height:80px; margin:0 auto; border:1px solid #eee; border-radius:30px;  }
+      
+      footer p {text-align:center; font-size:11px; color:#666; margin:30px 0 0 0px;}
+
+
+
+
+
+
+    </style>
+      
+   
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+   <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
+
+  </head>
+
+  <body>
+
+     
+
+
+   <header>
+
+       <h1>도서 API</h1>
+
+    </header>
+   
+
+
+
+    <section>
+
+       <h3>관련 도서</h3>
+
+
+
+
+
+
+
+ 
+
+  
+         <div class="sub_box"></div>
+
+
+
+
+
+
+
+    </section>
+
+
+
+    <footer>
+		<p>Copyright ⓒ INTERPARK Corporation All rights reserved.<p>
+    </footer>
+  
+ <script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+
+   		
+    <script>
+      $.ajax({
+        method: "GET",
+        url: "https://dapi.kakao.com/v3/search/book?target=title",
+        data: { query:"미움받을 용기" },
+        headers:{Authorization: "KakaoAK c8ffc3ab6fd3e90abbd76c604e685526"}
+      })
+        .done(function( msg ) {
+
+            console.log( msg.documents[1].title );
+            console.log( msg.documents[1].thumbnail );
+  
+
+
+
+             // 1
+
+            $(".sub_box:nth-of-type(1)").append("<img src='"+msg.documents[0].thumbnail+"'/>");
+            $(".sub_box:nth-of-type(1)").append("<h3>"+msg.documents[0].title+"</h3>");
+            $(".sub_box:nth-of-type(1)").append("<h6>"+msg.documents[0].authors[0]+"</h6>");
+
+            var str=msg.documents[0].contents;
+            var str2=str.substring(0,60);
+
+            $(".sub_box:nth-of-type(1)").append("<p>"+str2+"</p>");
+
+            $(".sub_box:nth-of-type(1)").append("<button>"+"click"+"</button>");  
+
+
+
+
+
+        });
+
+ 
+
+
+
+
+
+
+
+    </script>
+
+
+  </body>
+</html>
+
+

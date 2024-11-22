@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
+    <title>Document</title>
+    
+</head>
+<body>
+
+    <script>
+    $.ajax({
+        url : 'https://jsonplaceholder.typicode.com/posts?_limit=5',
+        type : 'get',
+    }).done(function(result){
+        console.log(result)
+    }).fail(function(xhr,status,error){
+        console.log(xhr)
+        console.log(status)
+        console.log(error)
+    })
+    </script>
+   
+    <!--<script>
+        $.ajax({
+            url : 'https://jsonplaceholder.typicode.com/posts?_limit=5',
+            type : 'get',
+            success : func,
+            error : function(error){
+                console.log(error)
+            }
+        });
+
+        function func(result){
+            alert("성공!!")
+            console.log(result)
+        }
+    </script>-->
+</body>
+</html>

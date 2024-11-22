@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>배열의 주요 메서드</h1>
+<hr>
+<script src="util.js"></script>
+<script>
+function Person(name,point,city){
+    this.name = name;
+    this.point = point;
+    this.city = city;
+}
+Person.prototype.toString = function(){ return this.name;}
+const persons = [
+    new Person("둘리",88,"서울"),
+    new Person("또치",90,"서울"),
+    new Person("도우너",40,"제주"),
+    new Person("고길동",70,"서울"),
+];
+const pass = parsons.filter(function(person){
+    return person.point >80;
+});
+writeColor(pass,'h3','red')
+</script>
+</body>
+</html>
